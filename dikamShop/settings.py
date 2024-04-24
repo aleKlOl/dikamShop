@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-gat)&j2-!qg)6@&^nb-xos@8#*99dwt3_c$tk06c65914j-c4h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dikamshop.onrender.com']
+ALLOWED_HOSTS = []
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
