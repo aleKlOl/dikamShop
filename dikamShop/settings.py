@@ -77,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'dikamShop.wsgi.app'
+WSGI_APPLICATION = 'dikamShop.wsgi.application'
 
 
 # Database
