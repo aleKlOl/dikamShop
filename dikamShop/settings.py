@@ -17,18 +17,22 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1').split(",")
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
+# 1$wmu-951*#%cej8dp@$)i_$c3)&^6a56+g*8y39w*klh#2-l8
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-gat)&j2-!qg)6@&^nb-xos@8#*99dwt3_c$tk06c65914j-c4h'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-gat)&j2-!qg)6@&^nb-xos@8#*99dwt3_c$tk06c65914j-c4h')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'dikamshop.onrender.com']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1').split(",")
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -89,15 +93,20 @@ WSGI_APPLICATION = 'dikamShop.wsgi.application'
 
 
 
-DATABASES = {
+if not DEBUG:
+    DATABASES = {
+	"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+    
+else:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-database_url = os.environ.get("DATABASE_URL")
-DATABASES["default"] = dj_database_url.parse(database_url)
+   
+    
 
 # 
 
