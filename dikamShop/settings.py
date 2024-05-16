@@ -17,8 +17,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1').split(",")
 
 
 # Quick-start development settings - unsuitable for production
@@ -30,9 +28,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-gat)&j2-!qg)6@&^nb-xo
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1').split(",")
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'dikamshop.onrender.com']
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
