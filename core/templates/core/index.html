@@ -2,9 +2,16 @@
 
 {% block title %}Welcome{% endblock %}
 {% block content %}
+<style>
+    @media (max-width: 520px) {
+        .container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+</style>
     <div class="mt-6 px-6 py-12 bg-slate-100 rounded-xl">
         <h2 class="mb-12 text-2xl text-center" style="font-family: Tahoma"> Самое новое </h2>
-        <div class="grid grid-cols-3 gap-3">
+        <div class="container grid grid-cols-3 gap-3">
             {% for item in items %}
                 <div>
                     <a href="{% url 'item:detail' item.id %}">
