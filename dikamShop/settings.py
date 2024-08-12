@@ -54,7 +54,6 @@ INSTALLED_APPS = [
     'core',
     'dashboard',
     'item',
-    'hitcount'
 ]
 
 MIDDLEWARE = [

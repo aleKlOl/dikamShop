@@ -4,15 +4,9 @@ from item.models import Category, Item
 
 from .forms import SignupForm
 
-from hitcount.views import HitCountMixin
-from hitcount.models import HitCount
-
 def index(request):
     items = Item.objects.filter(is_sold=False)[0:6]
     categories = Category.objects.all()
-
-    hit_count = HitCount.objects.get_for_object(request.user)
-    HitCountMixin.hit_count(request, hit_count)
 
     return render(request, 'core/index.html', {
         'categories': categories,
