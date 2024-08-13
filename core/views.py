@@ -11,7 +11,6 @@ def index(request):
     return render(request, 'core/index.html', {
         'categories': categories,
         'items': items,
-        'hit_count': hit_count.hits
     })
 
 def contact(request):
